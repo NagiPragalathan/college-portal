@@ -1,0 +1,1 @@
+"use strict";function submit_form(e,t){t.preventDefault();var s=e.querySelector("button"),t=(s.classList,parseFloat(window.getComputedStyle(s).getPropertyValue("font-size")));s.innerText;s.classList.toggle("btn--disabled"),s.style.fontSize=t-t/5+"px",s.innerText="Please Wait...";e=get_form_values(e);console.log(e)}

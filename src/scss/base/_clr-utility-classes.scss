@@ -1,0 +1,7 @@
+@use "../abstracts/colours" as c;
+@use "../abstracts/mixins" as m;
+
+@include m.clrs(c.$primary, primary);
+@include m.clrs(c.$accent, accent);
+@include m.clrs(c.$neutral, neutral);
+@include m.clrs(c.$status, status);

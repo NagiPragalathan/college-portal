@@ -1,0 +1,85 @@
+{%macro input_text_anim(id, label_text, modifiers)%}
+    <div id="{{id}}" class="input-text-anim {{' '.join(modifiers)}}">
+        <div class="input-text-anim__input-label-collection">
+            <input type="text"
+            id="{{id}}-input-field"
+            name="{{id}}-input-field"
+            class="input-text-anim__input-field"
+            placeholder="&nbsp;"
+            autocomplete="on"
+            onfocus="this.select()"
+            required
+            >
+            <label 
+            class="input-text-anim__label"
+            for="{{id}}-input-field">{{label_text}}</label>
+        </div>
+        <span id="{{id}}-err" class="input-text-anim__err">
+            Lorem ipsum dolor sit amet.
+        </span>
+    </div>
+{%endmacro%}
+
+
+{%macro input_pass_anim(id, label_text, modifiers)%}
+    <div id="{{id}}" class="input-pass-anim {{' '.join(modifiers)}}">
+        <div class="input-pass-anim__input-label-collection">
+            <input type="password"
+            id="{{id}}-input-field"
+            name="{{id}}-input-field"
+            class="input-pass-anim__input-field"
+            placeholder="&nbsp;"
+            autocomplete="on"
+            onfocusthis.select()
+            required
+            >
+            <label
+            class="input-pass-anim__label"
+            for="{{id}}-input-field">{{label_text}}</label>
+            <i class="fas fa-eye input-pass-anim__eye-icon" onclick="eye_toggle(this, event)"></i>
+        </div>
+        <span id="{{id}}-err" class="input-pass-anim__err">
+            Lorem ipsum dolor sit amet.
+        </span>
+    </div>
+{%endmacro%}
+
+
+{%macro input_checkbox(name, label_text, modifiers)%}
+    {%set norm_label_text = "_".join(label_text.lower().split())%}
+    <div class="input-chk-box {{' '.join(modifiers)}}">
+        <input type="checkbox"
+            name="{{name}}"
+            id="{{name}}--{{norm_label_text}}"
+            class="input-chk-box__input-field">
+        <label for="{{name}}--{{norm_label_text}}"
+            class="input-chk-box__label"
+        >{{label_text}}</label>
+    </div>
+{%endmacro%}
+
+{%macro input_radio_image(name, label_text, image_path, modifiers)%}
+    {%set norm_label_text = "_".join(label_text.lower().split())%}
+    <label class="input-radio-img {{' '.join(modifiers)}}"
+        >
+        <input type="radio"
+            id="{{name}}-{{norm_label_text}}"
+            name="{{name}}"
+            class="input-radio-img__radio-btn"
+            value="{{label_text}}" />
+        <img src="{{url_for('static', filename=image_path)}}" alt="{{norm_label_text}}"
+            class="input-radio-img__img">
+        <label for="{{name}}-{{norm_label_text}}" class="input-radio-img__label">
+        {{label_text}}
+        </label>
+    </label>
+{%endmacro%}
+
+
+{%macro input_select_box(id, values, modifiers)%}
+    <select name="{{id}}" id="{{id}}" class="{{' '.join(modifiers)}}">
+        {% for value in values %}
+            <option value="{{id}}--{{value}}">value</option>
+        {% endfor %}
+    </select>
+{%endmacro%}

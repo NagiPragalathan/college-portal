@@ -1,0 +1,160 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JEC Portal</title>
+    <link rel="stylesheet" href="../../website/static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="../../website/static/js/core.js"></script>
+  </head>
+
+  <body>
+    <main class="common-login-main">
+      <section class="common-login-header">
+        <img
+          src="../../website/static/imgs/logo.svg"
+          alt="college logo"
+          class="common-login-header__logo"
+        />
+        <h1 class="common-login-header__name">Jaya Engineering College</h1>
+      </section>
+      <form method="post" class="common-login-form">
+        <section class="common-login-form__role">
+          <label class="input-radio-img input-radio-img--primary">
+            <input
+              type="radio"
+              id="role-staff"
+              name="role"
+              class="input-radio-img__radio-btn"
+              value="Staff"
+            />
+            <img
+              src="../../website/static/imgs/staff.svg"
+              alt="staff"
+              class="input-radio-img__img"
+            />
+            <label for="role-staff" class="input-radio-img__label">
+              Staff
+            </label>
+          </label>
+
+          <label class="input-radio-img input-radio-img--primary">
+            <input
+              type="radio"
+              id="role-student"
+              name="role"
+              class="input-radio-img__radio-btn"
+              value="Student"
+            />
+            <img
+              src="../../website/static/imgs/student.svg"
+              alt="student"
+              class="input-radio-img__img"
+            />
+            <label for="role-student" class="input-radio-img__label">
+              Student
+            </label>
+          </label>
+
+          <label class="input-radio-img input-radio-img--primary">
+            <input
+              type="radio"
+              id="role-parent"
+              name="role"
+              class="input-radio-img__radio-btn"
+              value="Parent"
+            />
+            <img
+              src="../../website/static/imgs/parent.svg"
+              alt="parent"
+              class="input-radio-img__img"
+            />
+            <label for="role-parent" class="input-radio-img__label">
+              Parent
+            </label>
+          </label>
+        </section>
+        <div class="common-login-form__credentials">
+          <div
+            id="form-username"
+            class="input-text-anim input-text-anim--focus-primary"
+          >
+            <div class="input-text-anim__input-label-collection">
+              <input
+                type="text"
+                id="form-username-input-field"
+                name="form-username-input-field"
+                class="input-text-anim__input-field"
+                placeholder="&nbsp;"
+                autocomplete="on"
+                required=""
+              />
+              <label
+                class="input-text-anim__label"
+                for="form-username-input-field"
+                >Username or Email</label
+              >
+            </div>
+            <span id="form-username-err" class="input-text-anim__err">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </div>
+
+          <div
+            id="form-password"
+            class="input-pass-anim input-pass-anim--focus-primary"
+          >
+            <div class="input-pass-anim__input-label-collection">
+              <input
+                type="password"
+                id="form-password-input-field"
+                name="form-password-input-field"
+                class="input-pass-anim__input-field"
+                placeholder="&nbsp;"
+                autocomplete="on"
+                required=""
+              />
+              <label
+                class="input-pass-anim__label"
+                for="form-password-input-field"
+                >Password</label
+              >
+              <i class="fas fa-eye input-pass-anim__eye-icon"></i>
+            </div>
+            <span id="form-password-err" class="input-pass-anim__err">
+              Lorem ipsum dolor sit amet.
+            </span>
+          </div>
+        </div>
+        <div class="common-login-form__btns">
+          <div
+            class="input-chk-box input-chk-box--circle-tick input-chk-box--primary"
+          >
+            <input
+              type="checkbox"
+              name="form-remember-me"
+              id="form-remember-me--remember_me"
+              class="input-chk-box__input-field"
+            />
+            <label
+              for="form-remember-me--remember_me"
+              class="input-chk-box__label"
+              >Remember me</label
+            >
+          </div>
+
+          <button type="submit" class="btn btn--capsule btn--primary">
+            Login
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      document.getElementById("role-".concat("staff")).checked = true;
+    </script>
+  </body>
+</html>
