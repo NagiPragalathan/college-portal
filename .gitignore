@@ -1,0 +1,17 @@
+env/**
+**/__pycache__/*
+.ipynb_checkpoints/**
+.vscode
+dist/**/*
+node_modules
+
+.env
+.flaskenv
+makefile
+main.py
+*.sqlite
+*.database
+*ipynb
+
+#design-branch
+database/initial.drawio
