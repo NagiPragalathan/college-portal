@@ -1,0 +1,41 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m %}
+
+
+{% block title %}
+JEC Portal
+{% endblock title %}
+
+{% block scripts %}
+<script defer src="{{url_for('static', filename='js/ui/login/common.js')}}"></script>
+{% endblock scripts %}
+
+{% block content %}
+    <main class="common-login-main">
+        <section class="common-login-header">
+            <img src="{{url_for('static', filename='imgs/logo.svg')}}" alt="college logo" class="common-login-header__logo">
+            <h1 class="common-login-header__name">Jaya Engineering College</h1>
+        </section>
+        <form method="post" class="common-login-form" onsubmit="submit_form(this, event)">
+            <section class="common-login-form__role">
+                {{m.input_radio_image(name="role", label_text="Staff", image_path="imgs/staff.svg", modifiers=("input-radio-img--primary",))}}
+                {{m.input_radio_image(name="role", label_text="Student", image_path="imgs/student.svg", modifiers=("input-radio-img--primary",))}}
+                {{m.input_radio_image(name="role", label_text="Parent", image_path="imgs/parent.svg", modifiers=("input-radio-img--primary",))}}
+            </section>
+            <div class="common-login-form__credentials">
+                {{m.input_text_anim(id="form-username", label_text="Username or Email", modifiers=("input-text-anim--focus-primary",))}}
+                {{m.input_pass_anim(id="form-password", label_text="Password", modifiers=("input-pass-anim--focus-primary",))}}
+            </div>
+            <div class="common-login-form__btns">
+                {{m.input_checkbox(name="form-remember-me", label_text="Remember me", modifiers=("input-chk-box--circle-tick",  "input-chk-box--primary"))}}
+                <button type="submit" class="btn btn--capsule btn--primary">Login</button>
+            </div>
+        </form>
+    </main>
+{% endblock content %}
+
+{% block additional_scripts %}
+  <script>
+    document.getElementById("role-".concat({{role | tojson}})).checked=true;
+  </script>
+{% endblock additional_scripts %}

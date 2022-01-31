@@ -1,0 +1,34 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m %}
+
+
+{% block title %}
+JEC Portal
+{% endblock title %}
+
+{% block scripts %}
+<script defer src="{{url_for('static', filename='js/ui/login/admin.js')}}"></script>
+{% endblock scripts %}
+
+{% block content %}
+    <main class="admin-login-main">
+        <section class="admin-login-header">
+            <img src="{{url_for('static', filename='imgs/logo.svg')}}" alt="college logo" class="admin-login-header__logo">
+            <h1 class="admin-login-header__name">Jaya Engineering College</h1>
+        </section>
+        <section class="admin-login-role">
+            <img src="{{url_for('static', filename='imgs/admin.svg')}}" alt="role illustration" class="admin-login-role__image border-primary-dark">
+            <p class="admin-login-role__name">Admin</p>
+        </section>
+        <form method="post" class="admin-login-form" onsubmit="submit_form(this, event)">
+            <div class="admin-login-form__credentials">
+                {{m.input_text_anim(id="form-username", label_text="Username or Email", modifiers=("input-text-anim--focus-primary",))}}
+                {{m.input_pass_anim(id="form-password", label_text="Password", modifiers=("input-pass-anim--focus-primary",))}}
+            </div>
+            <div class="admin-login-form__btns">
+                {{m.input_checkbox(name="form-remember-me", label_text="Remember me", modifiers=("input-chk-box--circle-tick",  "input-chk-box--primary"))}}
+                <button type="submit" class="btn btn--capsule btn--primary">Login</button>
+            </div>
+        </form>
+    </main>
+{% endblock content %}
