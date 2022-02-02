@@ -1,0 +1,9 @@
+@use "../admin/create_staff_login" as create-staff-login;
+
+.create-student-login__main {
+  @extend .create-staff-login__main;
+}
+
+.create-student-login__form {
+  @extend .create-staff-login__form;
+}

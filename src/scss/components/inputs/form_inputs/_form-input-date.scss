@@ -1,0 +1,55 @@
+@use "../../../abstracts" as *;
+
+.form-input-date {
+  // border: 2px solid rebeccapurple;
+
+  $self: &;
+  font-size: 1rem;
+  gap: 0.2em;
+  @include flex-center(column);
+
+  &__label {
+    color: lighten(neutral-clr(100), 10%);
+    font-size: 1em;
+  }
+
+  &__inner-wrapper {
+    @include flex-center();
+    gap: 1rem;
+  }
+
+  &__err {
+    opacity: 0;
+    font-size: 0.7em;
+    letter-spacing: 0.02em;
+    color: status-clr(danger);
+  }
+
+  &__input-field {
+    color: lighten(neutral-clr(100), 10%);
+    border-radius: 0.5rem;
+    border-width: 0.1rem;
+    border-style: solid;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0.5em;
+  }
+
+  // Modifiers
+
+  &--focus-primary {
+    &:focus-within {
+      #{$self}__input-field {
+        border: 0.3rem solid primary-clr(regular);
+        color: primary-clr(dark);
+        font-weight: bold;
+        background-color: neutral-clr(500);
+      }
+
+      #{$self}__label {
+        font-weight: bold;
+        color: primary-clr(regular);
+      }
+    }
+  }
+}

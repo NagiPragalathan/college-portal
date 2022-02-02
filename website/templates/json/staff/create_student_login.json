@@ -1,0 +1,110 @@
+{
+  "Username": {
+    "type": "text",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Mail": {
+    "type": "email",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "First Name": {
+    "type": "text",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Middle Name": {
+    "type": "text",
+    "orientation": "vertical",
+    "modifiers": ["form-input-vertical--focus-primary"],
+    "required": false
+  },
+
+  "Last Name": {
+    "type": "text",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Register Number": {
+    "type": "tel",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Mobile Number": {
+    "type": "tel",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Batch": {
+    "type": "tel",
+    "orientation": "vertical",
+    "modifiers": [
+      "form-input-vertical--required",
+      "form-input-vertical--focus-primary"
+    ],
+    "required": true
+  },
+
+  "Date of Birth": {
+    "type": "date",
+    "modifiers": ["form-input-date--focus-primary"],
+    "required": true
+  },
+
+  "Regulation": {
+    "type": "select",
+    "modifiers": ["form-input-select--focus-primary"],
+    "values": [2013, 2017, 2021],
+    "required": true
+  },
+
+  "Department": {
+    "type": "select",
+    "modifiers": ["form-input-select--focus-primary"],
+    "values": ["CSE", "MECH", "IT", "AERO", "CIVIL"],
+    "required": true
+  },
+
+  "Blood Group": {
+    "type": "select",
+    "modifiers": ["form-input-select--focus-primary"],
+    "values": ["O+", "O-", "A+", "A-"],
+    "required": true
+  },
+
+  "Lateral Entry": {
+    "type": "checkbox",
+    "modifiers": ["input-chk-box--square-tick", "input-chk-box--primary"]
+  }
+}

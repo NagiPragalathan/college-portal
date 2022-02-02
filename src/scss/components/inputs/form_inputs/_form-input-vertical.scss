@@ -1,0 +1,42 @@
+@use "../../../abstracts" as *;
+@use "form-input-horizontal" as form-inp-h;
+
+.form-input-vertical {
+  $self: &;
+  $super: form-input-horizontal;
+
+  @extend .#{$super};
+
+  &__inner-wrapper {
+    @extend .#{$super}__inner-wrapper;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  &__input-field {
+    @extend .#{$super}__input-field;
+  }
+
+  &__label {
+    @extend .#{$super}__label;
+  }
+
+  &__err {
+    @extend .#{$super}__err;
+  }
+
+  // Modifiers
+
+  &--focus-primary {
+    @extend .#{$super}--focus-primary;
+  }
+
+  &--focus-err {
+    @extend .#{$super}--focus-err;
+  }
+
+  &--required {
+    @extend .#{$super}--required;
+  }
+}
