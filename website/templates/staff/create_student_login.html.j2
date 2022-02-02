@@ -1,0 +1,21 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m %}
+
+
+{% block content %}
+    <main class="create-student-login__main">
+        <section class="create-student-login__header">
+            <h1>Create New Student Login</h1>
+        </section>
+
+        <form method="post" class="create-student-login__form" onsubmit="submit_form(this, event)">
+            {{m.generate_form(page_template)}}
+            <button class="btn btn--capsule btn--primary" type="submit">Submit</button>
+        </form>
+            <a href="#" class="btn btn--capsule btn--primary">Upload CSV</a>
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+<script defer src="{{url_for('static', filename='js/ui/staff/create_student_login.js')}}"></script>
+{% endblock scripts %}

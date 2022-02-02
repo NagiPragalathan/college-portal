@@ -71,11 +71,93 @@
     </label>
 {%endmacro%}
 
+{%macro form_input_text(id, orientation, type, label_text, modifiers, is_required=False)%}
+    <div
+      class="form-input-{{orientation}} {{' '.join(modifiers)}}"
+    >
+      <div class="form-input-{{orientation}}__inner-wrapper">
+        <input
+          type="{{type}}"
+          id="{{id}}-input-field"
+          name="{{id}}-input-field"
+          class="form-input-{{orientation}}__input-field"
+          placeholder="&nbsp;"
+          autocomplete="off"
+          onfocus="this.select()"
+          {{'required' if is_required else ''}}
+        />
+        <label for="{{id}}-input-field" class="form-input-{{orientation}}__label"
+          >{{label_text}}</label
+        >
+      </div>
+      <span id="{{id}}-err" class="form-input-{{orientation}}__err"></span>
+    </div>
+{%endmacro%}
 
-{%macro input_select_box(id, values, modifiers)%}
-    <select name="{{id}}" id="{{id}}" class="{{' '.join(modifiers)}}">
+{%macro input_date(id, label_text, modifiers, is_required=False)%}
+    <div class="form-input-date {{' '.join(modifiers)}}">
+      <div class="form-input-date__inner-wrapper">
+          <label for="{{id}}-input-field" class="form-input-date__label">{{label_text}}</label>
+          <input
+            id="{{id}}-input-field"
+            name="{{id}}-input-field"
+            type="date"
+            class="form-input-date__input-field"
+            {{'required' if is_required else ''}}
+          />
+      </div>
+      <span id="{{id}}-err" class="form-input-date__err"></span>
+    </div>
+{%endmacro%}
+
+{%macro input_select_box(id, label_text, values, modifiers)%}
+  <div class="form-input-select {{' '.join(modifiers)}}">
+      <label for="{{id}}-select" class="form-input-select__label">{{label_text}}</label>
+      <select name="{{id}}-select" id="{{id}}-select" class="form-input-select__select">
         {% for value in values %}
-            <option value="{{id}}--{{value}}">value</option>
+            <option class="form-input-select__option" value="{{value}}">
+                {{value}}
+            </option>
         {% endfor %}
-    </select>
+      </select>
+    </div>
+{%endmacro%}
+
+{%macro generate_form(page_template)%}
+    {% for name, data in page_template.items() %}
+        {%set type = data.get("type") %}
+        {%set orientation = data.get("orientation") %}
+        {%set modifiers = data.get("modifiers") %}
+        {%set values = data.get("values") %}
+        {%set required = data.get("required") %}
+
+        {%set norm_text = "_".join(name.lower().split())%}
+
+        {% if type == 'text' or type == "email" or type == "tel" %}
+            {{form_input_text(id=norm_text,
+                orientation=orientation,
+                type=type,
+                label_text=name,
+                modifiers=modifiers,
+                is_required=required
+            )}}
+        {% elif type == "select" %}
+            {{input_select_box(id=norm_text,
+                label_text=name,
+                values=values,
+                modifiers=modifiers
+            )}}
+        {%elif type == "date" %}
+            {{input_date(id=norm_text,
+                label_text=name,
+                modifiers=modifiers,
+                is_required=required
+            )}}
+        {%elif type == "checkbox"%}
+            {{input_checkbox(name=norm_text,
+                label_text=name,
+                modifiers=modifiers
+            )}}
+        {% endif %}
+    {% endfor %}
 {%endmacro%}
