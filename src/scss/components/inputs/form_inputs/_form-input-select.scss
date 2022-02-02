@@ -1,0 +1,54 @@
+@use "../../../abstracts" as *;
+
+.form-input-select {
+  // border: 2px solid rebeccapurple;
+
+  $self: &;
+
+  @include flex-center();
+  gap: 1rem;
+
+  font-size: 1rem;
+
+  &__select {
+    width: 60%;
+    background-color: neutral-clr(500);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 0.5em;
+    border-width: 0.1rem;
+    border-style: solid;
+    font-size: 1em;
+  }
+
+  &__option {
+    border: 2px solid greenyellow;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__label {
+    color: lighten(neutral-clr(100), 10%);
+    font-size: 1em;
+  }
+
+  // Modifiers
+
+  &--focus-primary {
+    &:focus-within {
+      #{$self}__select {
+        border: 0.3rem solid primary-clr(regular);
+        color: primary-clr(dark);
+        font-weight: bold;
+        background-color: neutral-clr(500);
+      }
+
+      #{$self}__label {
+        font-weight: bold;
+        color: primary-clr(regular);
+      }
+    }
+  }
+}
